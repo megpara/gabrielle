@@ -33,9 +33,14 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.title {
+font-family: lust-sans, sans-serif;
+/* font-weight: 200; */
+}
+
+.enter {
+  padding-top: 20px;
+  cursor: pointer;
 }
 
 .title a:hover,

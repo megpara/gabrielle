@@ -1,0 +1,58 @@
+.title {
+  font-family: lust-sans, sans-serif;
+  font-size: 2rem;
+  margin: 20px;
+  font-weight: 200;
+}
+.infoMain {
+  padding: 5rem;
+  max-width: 800px;
+  margin: auto;
+}
+.subtitle {
+  font-size: 3rem;
+  font-family: "lust-sans";
+}
+.smallTitle {
+  font-size: 2rem;
+  font-family: "lust-sans";
+}
+.schedule {
+  margin: 20px 50px;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+.notice {
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+.paymentLink {
+  font-weight: 700;
+}
+.payment {
+  margin: 50px 0;
+  text-align: center;
+  font-weight: 300;
+}
+.newsletter {
+  border: 2px solid black;
+  height: 50px;
+}
+.instaLogo {
+  position: absolute;
+  width: 20px;
+  top: 25px;
+  right: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 5rem 2rem;
+  }
+  .instaLogo {
+    display: none;
+  }
+}

@@ -7,7 +7,7 @@ export default function Layout({ children }) {
       <Head>
         <title>gabrielle johnson yoga</title>
         <meta name="description" content="Yoga by Gabrielle Johnson" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <link rel="stylesheet" href="https://use.typekit.net/uyy5sgw.css" />
       </Head>
       {children}

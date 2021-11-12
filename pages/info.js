@@ -1,8 +1,29 @@
 import styles from "../styles/Info.module.css";
 import Layout from "../components/Layout";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Info() {
+  const [email, setEmail] = useState("");
+  const onChange = (e) => {
+    setEmail(e.currentTarget.value);
+  };
+  const [state, setState] = useState("IDLE");
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const subscribe = async () => {
+    setState("LOADING");
+    setErrorMessage(null);
+    try {
+      const response = await axios.post("/api/subscribe", { email });
+      setState("SUCCESS");
+    } catch (e) {
+      setErrorMessage(e.response.data.error);
+      console.log(errorMessage);
+      setState("ERROR");
+    }
+  };
   return (
     <Layout>
       <motion.div
@@ -11,7 +32,9 @@ export default function Info() {
         transition={{ ease: "easeIn" }}
       >
         <div className={styles.title}>gabrielle johnson yoga</div>
-        <img className={styles.instaLogo} src="/insta-logo.png" />
+        <a href="https://www.instagram.com/gabbiejohnson/" target="_blank">
+          <img className={styles.instaLogo} src="/insta-logo.png" />
+        </a>
         <div className={styles.infoMain}>
           <div className={styles.subtitle}>Schedule</div>
           <div className={styles.schedule}>Wednesdays 6:15 pm EST</div>
@@ -23,7 +46,7 @@ export default function Info() {
           <div className={styles.payment}>
             $10 per class,{" "}
             <a
-              href="https://venmo.com"
+              href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
               target="_blank"
               className={styles.paymentLink}
             >
@@ -32,14 +55,23 @@ export default function Info() {
             or{" "}
             <a
               className={styles.paymentLink}
-              href="https://paypal.com"
+              href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=3d9a1b81cf&e=5b3b7ecfc2"
               target="_blank"
             >
               paypal
             </a>
           </div>
           <div className={styles.smallTitle}>Weekly newsletter signup</div>
-          <div className={styles.newsletter}></div>
+          <input onChange={onChange} className={styles.newsletter}></input>
+          <button
+            className={styles.submit}
+            onClick={subscribe}
+            disabled={state === "LOADING"}
+          >
+            Submit
+          </button>
+          {state === "ERROR" && <p className={styles.notice}>{errorMessage}</p>}
+          {state === "SUCCESS" && <p className={styles.notice}>Thank you!</p>}
         </div>
       </motion.div>
     </Layout>

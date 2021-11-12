@@ -2,7 +2,7 @@
   font-family: lust-sans, sans-serif;
   font-size: 2rem;
   margin: 20px;
-  font-weight: 200;
+  font-weight: 300;
 }
 .infoMain {
   padding: 5rem;
@@ -16,10 +16,11 @@
 .smallTitle {
   font-size: 2rem;
   font-family: "lust-sans";
+  margin-bottom: 10px;
 }
 .schedule {
   margin: 20px 50px;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 1.2rem;
 }
 .notice {
@@ -37,6 +38,13 @@
 .newsletter {
   border: 2px solid black;
   height: 50px;
+  width: 100%;
+  background: unset;
+  padding: 10px;
+  font-size: 15px;
+}
+.newsletter:focus {
+  outline: none;
 }
 .instaLogo {
   position: absolute;
@@ -44,16 +52,26 @@
   top: 25px;
   right: 25px;
 }
-
+.submit {
+  margin-top: 20px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  border: none;
+  width: 100px;
+  height: 34px;
+  background: black;
+  color: #efeee8;
+  cursor: pointer;
+}
 @media only screen and (max-width: 768px) {
   .title {
     font-size: 1.5rem;
     font-weight: 400;
   }
-  .container {
-    padding: 5rem 2rem;
+  .smallTitle {
+    padding-top: 40px;
   }
-  .instaLogo {
-    display: none;
+  .infoMain {
+    padding: 5rem 20px;
   }
 }

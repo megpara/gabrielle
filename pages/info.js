@@ -4,13 +4,22 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import axios from "axios";
 
+const buttonText = {
+  LOADING: "Loading",
+  IDLE: "Submit",
+  SUCCESS: "Complete",
+  ERROR: "Uh oh",
+};
+
 export default function Info() {
   const [email, setEmail] = useState("");
-  const onChange = (e) => {
-    setEmail(e.currentTarget.value);
-  };
   const [state, setState] = useState("IDLE");
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const onChange = (e) => {
+    setEmail(e.currentTarget.value);
+    setState("IDLE");
+  };
 
   const subscribe = async () => {
     setState("LOADING");
@@ -68,7 +77,7 @@ export default function Info() {
             onClick={subscribe}
             disabled={state === "LOADING"}
           >
-            Submit
+            {buttonText[state]}
           </button>
           {state === "ERROR" && <p className={styles.notice}>{errorMessage}</p>}
           {state === "SUCCESS" && <p className={styles.notice}>Thank you!</p>}

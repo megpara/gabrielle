@@ -41,33 +41,52 @@ export default function Info() {
         transition={{ ease: "easeIn" }}
       >
         <div className={styles.title}>gabrielle johnson yoga</div>
-        <a href="https://www.instagram.com/gabbiejohnson/" target="_blank">
-          <img className={styles.instaLogo} src="/insta-logo.png" />
-        </a>
+        <div className={styles.icons}>
+          <a href="https://vimeo.com/user66224685" target="_blank">
+            <img className={styles.icon} src="/vimeo-logo-black.png" />
+          </a>
+          <a
+            href="https://open.spotify.com/user/8449m6rm6h4nk2nnlialfrrq2"
+            target="_blank"
+          >
+            <img className={styles.icon} src="/spotify_logo_black.png" />
+          </a>
+          <a href="https://www.instagram.com/gabbiejohnson/" target="_blank">
+            <img className={styles.icon} src="/insta-logo.png" />
+          </a>
+        </div>
         <div className={styles.infoMain}>
           <div className={styles.subtitle}>Schedule</div>
-          <div className={styles.schedule}>Wednesdays 6:15 pm EST</div>
-          <div className={styles.schedule}>Saturdays 10 am EST</div>
           <div className={styles.notice}>
-            Times are subject to change, updates will come in the weekly
-            newsletter
+            All classes are 1 hour, all levels welcome.
           </div>
-          <div className={styles.payment}>
+          <div className={styles.schedule}>Sat 12/4 10 am EST</div>
+          <div className={styles.schedule}>Wed 12/8 6:15 pm EST</div>
+          <div className={styles.schedule}>Sun 12/12 12 pm EST</div>
+          <div className={styles.schedule}>Wed 12/15 6:15 pm EST</div>
+          <div className={styles.links}>
             $10 per class,{" "}
             <a
               href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
               target="_blank"
-              className={styles.paymentLink}
+              className={styles.link}
             >
               venmo
             </a>{" "}
             or{" "}
             <a
-              className={styles.paymentLink}
+              className={styles.link}
               href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=3d9a1b81cf&e=5b3b7ecfc2"
               target="_blank"
             >
               paypal
+            </a>
+            <a
+              className={`${styles.link} ${styles.blockLink}`}
+              target="_blank"
+              href="https://us02web.zoom.us/j/8822051411"
+            >
+              zoom link
             </a>
           </div>
           <div className={styles.smallTitle}>Weekly newsletter signup</div>

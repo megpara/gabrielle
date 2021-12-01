@@ -5,7 +5,7 @@
   font-weight: 300;
 }
 .infoMain {
-  padding: 5rem;
+  padding: 2rem 5rem;
   max-width: 800px;
   margin: auto;
 }
@@ -26,14 +26,19 @@
 .notice {
   font-weight: 300;
   font-size: 0.85rem;
+  padding-top: 10px;
 }
-.paymentLink {
-  font-weight: 700;
-}
-.payment {
+.links {
   margin: 50px 0;
   text-align: center;
   font-weight: 300;
+}
+.link {
+  font-weight: 700;
+}
+.blockLink {
+  display: block;
+  padding-top: 10px;
 }
 .newsletter {
   border: 2px solid black;
@@ -46,11 +51,14 @@
 .newsletter:focus {
   outline: none;
 }
-.instaLogo {
+.icons {
   position: absolute;
-  width: 20px;
   top: 25px;
   right: 25px;
+}
+.icon {
+  width: 20px;
+  margin-left: 10px;
 }
 .submit {
   margin-top: 20px;
@@ -67,11 +75,14 @@
   .title {
     font-size: 1.5rem;
     font-weight: 400;
-  }
-  .smallTitle {
-    padding-top: 40px;
+    text-align: center;
   }
   .infoMain {
-    padding: 5rem 20px;
+    padding: 2rem 20px;
+    text-align: center;
+  }
+  .icons {
+    bottom: 20px;
+    top: unset;
   }
 }

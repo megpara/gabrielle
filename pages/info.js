@@ -1,8 +1,10 @@
 import styles from "../styles/Info.module.css";
 import Layout from "../components/Layout";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { db } from "./_app";
+import { doc, getDoc } from "@firebase/firestore";
 
 const buttonText = {
   LOADING: "Loading",
@@ -15,6 +17,7 @@ export default function Info() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState("IDLE");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [schedule, setSchedule] = useState([]);
 
   const onChange = (e) => {
     setEmail(e.currentTarget.value);
@@ -33,6 +36,11 @@ export default function Info() {
       setState("ERROR");
     }
   };
+  useEffect(() => {
+    getDoc(doc(db, "classes", "ZhbNctSX1RPz2AquN14b")).then((snapshot) => {
+      setSchedule(snapshot.data().schedule);
+    });
+  }, []);
   return (
     <Layout>
       <motion.div
@@ -60,10 +68,13 @@ export default function Info() {
           <div className={styles.notice}>
             All classes are 1 hour, all levels welcome.
           </div>
-          <div className={styles.schedule}>Sat 12/4 10 am EST</div>
-          <div className={styles.schedule}>Wed 12/8 6:15 pm EST</div>
-          <div className={styles.schedule}>Sun 12/12 12 pm EST</div>
-          <div className={styles.schedule}>Wed 12/15 6:15 pm EST</div>
+          {schedule.map((classTime) => {
+            return (
+              <div key={classTime} className={styles.schedule}>
+                {classTime}
+              </div>
+            );
+          })}
           <div className={styles.links}>
             $10 per class,{" "}
             <a

@@ -1,0 +1,47 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.title {
+  font-family: "lust-sans", sans-serif;
+  font-size: 3rem;
+  margin: 2rem 2rem 0;
+}
+.subtitle {
+  font-family: "lust-sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+.admin input {
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.admin input:focus {
+  outline: black;
+}
+.scheduleEntry {
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+.delete {
+  width: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.admin button {
+  margin-top: 20px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  border: none;
+  width: 100px;
+  height: 34px;
+  background: black;
+  color: #efeee8;
+  cursor: pointer;
+}

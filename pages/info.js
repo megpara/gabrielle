@@ -100,7 +100,7 @@ export default function Info() {
               zoom link
             </a>
           </div>
-          <div className={styles.smallTitle}>Weekly newsletter signup</div>
+          <div className={styles.smallTitle}>Newsletter signup</div>
           <input onChange={onChange} className={styles.newsletter}></input>
           <button
             className={styles.submit}

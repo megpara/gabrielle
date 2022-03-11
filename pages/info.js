@@ -76,6 +76,33 @@ export default function Info() {
             );
           })}
           <div className={styles.links}>
+            Access to class via monthly subscription on{" "}
+            <a
+              href="https://www.patreon.com/gabriellejyoga"
+              target="_blank"
+              className={styles.link}
+            >
+              patreon
+            </a>{" "}
+            or sign up for a drop-in on{" "}
+            <a
+              href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
+              target="_blank"
+              className={styles.link}
+            >
+              venmo
+            </a>
+            /
+            <a
+              className={styles.link}
+              href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=3d9a1b81cf&e=5b3b7ecfc2"
+              target="_blank"
+            >
+              paypal
+            </a>
+            .
+          </div>
+          {/* <div className={styles.links}>
             $10 per class,{" "}
             <a
               href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
@@ -99,7 +126,7 @@ export default function Info() {
             >
               zoom link
             </a>
-          </div>
+          </div> */}
           <div className={styles.smallTitle}>Newsletter signup</div>
           <input onChange={onChange} className={styles.newsletter}></input>
           <button

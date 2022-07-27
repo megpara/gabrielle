@@ -1,0 +1,69 @@
+.footer {
+    padding: 5rem;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.icons a {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+}
+.icon {
+    width: 20px;
+}
+.newsletterContainer {
+    width: 60%;
+    padding-bottom: 1rem;
+}
+.smallTitle {
+    font-size: 2rem;
+    font-family: "lust-sans";
+    margin-bottom: 10px;
+}
+.notice {
+    font-weight: 300;
+    font-size: 0.85rem;
+    padding-top: 10px;
+}
+.newsletter {
+    border: 2px solid black;
+    height: 50px;
+    width: 100%;
+    background: unset;
+    padding: 10px;
+    font-size: 15px;
+}
+.newsletter:focus {
+    outline: none;
+}
+.submit {
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    border: none;
+    width: 100px;
+    height: 34px;
+    background: black;
+    color: #efeee8;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    .footer {
+        padding: 2rem;
+    }
+    .newsletterContainer {
+        width: unset;
+    }
+    .smallTitle {
+        font-size: 1.5rem;
+    }
+}

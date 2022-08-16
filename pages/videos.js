@@ -35,6 +35,11 @@ const videos = [
     id: "695440626",
     title: "A travel practice",
   },
+  {
+    thumbnail: "/digestion.png",
+    id: "731850898",
+    title: "Digestion boosting practice",
+  },
 ];
 
 export default function Videos() {

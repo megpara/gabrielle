@@ -9,8 +9,8 @@ export default function Contact() {
       <Header />
       <div className="relative h-[75vh] z-[-1]">
         <img
-          className="brightness-75 h-full w-full object-cover"
-          src="rocks.jpg"
+          className="brightness-75 h-full w-full object-cover object-top"
+          src="contact.jpg"
         />
         <Title>Contact</Title>
       </div>

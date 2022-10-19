@@ -50,7 +50,7 @@ export default function Admin() {
     <Layout>
       <div className={styles.title}>Admin</div>
       <div className={styles.admin}>
-        <div className={styles.subtitle}>Schedule</div>
+        {/* <div className={styles.subtitle}>Schedule</div>
         {schedule.map((classTime, i) => {
           return (
             <div className={styles.scheduleEntry} key={(classTime, i)}>
@@ -68,7 +68,9 @@ export default function Admin() {
           );
         })}
         <button onClick={addEntry}>Add</button>
-        <button onClick={saveSchedule}>{buttonText[state]}</button>
+        <button onClick={saveSchedule}>{buttonText[state]}</button> */}
+
+        <div className={styles.subtitle}>Videos</div>
       </div>
     </Layout>
   );

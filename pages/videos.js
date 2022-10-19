@@ -64,8 +64,8 @@ export default function Videos() {
       <Header />
       <div className="relative h-[75vh] z-[-1]">
         <img
-          className="brightness-75 h-full w-full object-cover"
-          src="yoga2.jpg"
+          className="brightness-75 h-full w-full object-cover object-top"
+          src="practice.jpg"
         />
         <Title>Guided practice</Title>
       </div>

@@ -40,6 +40,38 @@ export default function Videos() {
         />
         <Title>guided practice</Title>
       </div>
+      <div className="flex flex-col items-center pt-12 font-extralight leading-9">
+        <div>
+          Join me for a biweekly{" "}
+          <a
+            href="https://us02web.zoom.us/j/8822051411"
+            target="_blank"
+            className="font-bold"
+          >
+            zoom
+          </a>{" "}
+          class
+        </div>
+        <div>Dec 17th and 31st @ 10 am et/ 9 am ct</div>
+        <div>
+          $15 per class,{" "}
+          <a
+            href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
+            target="_blank"
+            className="font-bold"
+          >
+            venmo
+          </a>{" "}
+          or{" "}
+          <a
+            href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=3d9a1b81cf&e=5b3b7ecfc2"
+            target="_blank"
+            className="font-bold"
+          >
+            paypal
+          </a>
+        </div>
+      </div>
       {!videoOpen ? (
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 m-12">
           {vids.map((video) => (

@@ -33,3 +33,12 @@ a {
   font-size: 3.5rem;
   letter-spacing: 0.1rem;
 }
+.buttonPrimary {
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  border: none;
+  width: 100px;
+  background: #006972;
+  color: #efeee8;
+  cursor: pointer;
+}

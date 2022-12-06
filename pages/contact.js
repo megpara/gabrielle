@@ -12,7 +12,7 @@ export default function Contact() {
           className="brightness-75 h-full w-full object-cover object-top"
           src="contact.jpg"
         />
-        <Title>Contact</Title>
+        <Title>contact</Title>
       </div>
       <div className="md:my-36 md:mx-0 my-24 mx-8 flex flex-col items-center">
         <div className="pb-8 font-extralight tracking-wide text-center">

@@ -1,50 +1,15 @@
-import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./_app";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 
-const videos = [
-  {
-    thumbnail: "/Maintenance1.png",
-    id: "717272123",
-    title: "Maintenance 1",
-  },
-  {
-    thumbnail: "/maintenance2.png",
-    id: "722267197",
-    title: "Maintenance 2",
-  },
-  {
-    thumbnail: "/Maintenance3.png",
-    id: "727610143",
-    title: "Maintenance 3",
-  },
-  {
-    thumbnail: "/posture.png",
-    id: "706138037",
-    title: "Posture tune up",
-  },
-  {
-    thumbnail: "/shoulders.png",
-    id: "697909475",
-    title: "Shoulders",
-  },
-  {
-    thumbnail: "/travel.png",
-    id: "695440626",
-    title: "A travel practice",
-  },
-  {
-    thumbnail: "/digestion.png",
-    id: "731850898",
-    title: "Digestion boosting practice",
-  },
-];
-
 export default function Videos() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState({});
+  const [vids, setVids] = useState([]);
 
   const showFullVideo = (video) => {
     setVideoOpen(true);
@@ -59,6 +24,12 @@ export default function Videos() {
     );
   };
 
+  useEffect(() => {
+    getDoc(doc(db, "videos", "vbNH2DKhQein3pKgQiAI")).then((snapshot) => {
+      setVids(snapshot.data().vids);
+    });
+  }, []);
+
   return (
     <Layout>
       <Header />
@@ -67,21 +38,17 @@ export default function Videos() {
           className="brightness-75 h-full w-full object-cover object-top"
           src="practice.jpg"
         />
-        <Title>Guided practice</Title>
+        <Title>guided practice</Title>
       </div>
       {!videoOpen ? (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 m-8">
-          {videos.map((video) => (
-            <div className="relative aspect-square">
-              <img
-                src={video.thumbnail}
-                className="brightness-75 w-full h-full object-cover"
-              />
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 m-12">
+          {vids.map((video) => (
+            <div className="relative aspect-square bg-[#202124] flex flex-col items-center justify-center">
               <button
-                className="font-extralight tracking-wide hover:tracking-wider duration-700 pt-4"
+                className="text-white text-2xl font-thin tracking-wider hover:tracking-widest duration-700 pt-4"
                 onClick={() => showFullVideo(video)}
               >
-                {video.title}
+                {video.name}
               </button>
             </div>
           ))}

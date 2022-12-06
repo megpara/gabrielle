@@ -51,7 +51,7 @@ export default function Info() {
           className="brightness-75 h-full w-full object-cover object-top"
           src="home.jpg"
         />
-        <Title>Gabrielle Johnson Yoga</Title>
+        <Title>gabrielle johnson yoga</Title>
       </div>
       {/* <div className={styles.infoMain}>
         <div className={styles.subtitle}>Schedule</div>

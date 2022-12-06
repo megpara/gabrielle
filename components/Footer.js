@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.newsletterContainer}>
-        <div className={styles.smallTitle}>Newsletter signup</div>
+        <div className={styles.smallTitle}>newsletter signup</div>
         <input onChange={onChange} className={styles.newsletter}></input>
         <button
           className={styles.submit}

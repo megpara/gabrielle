@@ -12,7 +12,7 @@ export default function About() {
           className="brightness-75 h-full w-full object-cover object-top"
           src="about.jpg"
         />
-        <Title>About me</Title>
+        <Title>about me</Title>
       </div>
       <div className="md:my-36 md:mx-48 my-24 mx-8 font-extralight tracking-wide leading-9">
         <div>

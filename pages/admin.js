@@ -10,29 +10,41 @@ const buttonText = {
 };
 
 export default function Admin() {
-  const [schedule, setSchedule] = useState([]);
+  const [vids, setVids] = useState([]);
   const [state, setState] = useState("IDLE");
 
   useEffect(() => {
-    getDoc(doc(db, "classes", "ZhbNctSX1RPz2AquN14b")).then((snapshot) => {
-      setSchedule(snapshot.data().schedule);
-      console.log(schedule);
+    getDoc(doc(db, "videos", "vbNH2DKhQein3pKgQiAI")).then((snapshot) => {
+      setVids(snapshot.data().vids);
     });
   }, []);
 
   const addEntry = () => {
-    setSchedule([...schedule, ""]);
+    setVids([...vids, { name: "", id: "" }]);
+    console.log(vids);
   };
 
   const deleteEntry = (index) => {
-    setSchedule(schedule.filter((item, i) => i != index));
+    setVids(vids.filter((item, i) => i != index));
   };
 
-  const updateEntry = (index, value) => {
-    setSchedule(
-      schedule.map((item, i) => {
+  const updateName = (index, value) => {
+    setVids(
+      vids.map((item, i) => {
         if (i == index) {
-          return value;
+          return { name: value, id: item.id };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
+  const updateId = (index, value) => {
+    setVids(
+      vids.map((item, i) => {
+        if (i == index) {
+          return { name: item.name, id: value };
         } else {
           return item;
         }
@@ -41,8 +53,8 @@ export default function Admin() {
   };
 
   const saveSchedule = () => {
-    setDoc(doc(db, "classes", "ZhbNctSX1RPz2AquN14b"), {
-      schedule: schedule,
+    setDoc(doc(db, "videos", "vbNH2DKhQein3pKgQiAI"), {
+      vids: vids,
     }).then(setState("SUCCESS"));
   };
 
@@ -50,14 +62,19 @@ export default function Admin() {
     <Layout>
       <div className={styles.title}>Admin</div>
       <div className={styles.admin}>
-        {/* <div className={styles.subtitle}>Schedule</div>
-        {schedule.map((classTime, i) => {
+        <div className={styles.subtitle}>Videos</div>
+        {vids.map((video, i) => {
           return (
-            <div className={styles.scheduleEntry} key={(classTime, i)}>
+            <div className={styles.scheduleEntry} key={(video, i)}>
               <input
                 className={styles.schedule}
-                value={classTime}
-                onChange={(e) => updateEntry(i, e.target.value)}
+                value={video.name}
+                onChange={(e) => updateName(i, e.target.value)}
+              />
+              <input
+                className="ml-4"
+                value={video.id}
+                onChange={(e) => updateId(i, e.target.value)}
               />
               <img
                 className={styles.delete}
@@ -68,9 +85,7 @@ export default function Admin() {
           );
         })}
         <button onClick={addEntry}>Add</button>
-        <button onClick={saveSchedule}>{buttonText[state]}</button> */}
-
-        <div className={styles.subtitle}>Videos</div>
+        <button onClick={saveSchedule}>{buttonText[state]}</button>
       </div>
     </Layout>
   );

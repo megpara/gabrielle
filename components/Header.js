@@ -3,12 +3,22 @@ import { useState } from "react";
 import styles from "../styles/Header.module.css";
 import Menu from "./Menu";
 import * as React from "react";
+import Popup from "./Popup";
+import { useRouter } from "next/dist/client/router";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const router = useRouter();
+  let path = router.asPath;
+  const enablePopup = path === "/info";
+
   return (
     <div className="primaryColor">
       <div className={`${styles.title} absolute top-0 m-8`}>
@@ -25,6 +35,7 @@ export default function Header() {
       </div>
 
       <Menu open={menuOpen} toggle={toggleMenu} />
+      {enablePopup && <Popup open={isPopupOpen} closePopup={closePopup} />}
     </div>
   );
 }

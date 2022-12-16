@@ -32,6 +32,7 @@ a {
   line-height: 1.15;
   font-size: 3.5rem;
   letter-spacing: 0.1rem;
+  text-transform: lowercase;
 }
 .buttonPrimary {
   letter-spacing: 2px;

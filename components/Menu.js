@@ -64,7 +64,7 @@ export default function Menu({ open, toggle }) {
                 </Link>
                 <Link href="/videos">
                   <div className="cursor-pointer hover:tracking-widest duration-700">
-                    Recorded practice
+                    On demand
                   </div>
                 </Link>
                 <Link href="/contact">

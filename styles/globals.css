@@ -34,6 +34,12 @@ a {
   letter-spacing: 0.1rem;
   text-transform: lowercase;
 }
+.subtitle {
+  font-family: "lust-sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  padding-bottom: 1rem;
+}
 .buttonPrimary {
   letter-spacing: 2px;
   text-transform: lowercase;
@@ -42,4 +48,10 @@ a {
   background: #006972;
   color: #efeee8;
   cursor: pointer;
+}
+.x {
+  font-size: 21px;
+  font-weight: 100;
+  cursor: pointer;
+  font-family: "Montserrat";
 }

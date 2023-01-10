@@ -1,7 +1,8 @@
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../pages/_app";
 import Portal from "./Portal";
 import styles from "../styles/Popup.module.css";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 export default function Popup({ open, closePopup }) {
   const [display, setDisplay] = useState(false);
@@ -15,6 +16,14 @@ export default function Popup({ open, closePopup }) {
 
   const onAnimationEnd = () => !open && setDisplay(false);
 
+  const [schedule, setSchedule] = useState([]);
+
+  useEffect(() => {
+    getDoc(doc(db, "classes", "ZhbNctSX1RPz2AquN14b")).then((snapshot) => {
+      setSchedule(snapshot.data().schedule);
+    });
+  }, []);
+
   return (
     <Portal selector="#popup">
       {display && (
@@ -26,20 +35,11 @@ export default function Popup({ open, closePopup }) {
             <div className={styles.exit} onClick={closePopup}>
               X
             </div>
-            <div className="flex flex-col items-center font-extralight leading-7">
-              <div className="title pb-4">upcoming class</div>
-              <div>
-                Join me for a biweekly{" "}
-                <a
-                  href="https://us02web.zoom.us/j/8822051411"
-                  target="_blank"
-                  className="font-bold"
-                >
-                  zoom
-                </a>{" "}
-                class
-              </div>
-              <div>Dec 17th and 31st @ 10 am et/ 9 am ct</div>
+            <div className="flex flex-col items-center font-extralight">
+              <div className="subtitle">Upcoming classes</div>
+              {schedule.map((scheduleEntry) => (
+                <div>{scheduleEntry}</div>
+              ))}
               <div>
                 $15 per class,{" "}
                 <a
@@ -58,6 +58,13 @@ export default function Popup({ open, closePopup }) {
                   paypal
                 </a>
               </div>
+              <a
+                href="https://us02web.zoom.us/j/8822051411"
+                target="_blank"
+                className="font-bold"
+              >
+                zoom link
+              </a>
             </div>
           </div>
         </div>

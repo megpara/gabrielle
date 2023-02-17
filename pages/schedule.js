@@ -26,12 +26,15 @@ export default function Schedule() {
         <Title>schedule</Title>
       </div>
       <div className="m-24 font-extralight tracking-wide leading-9 text-center">
-        <div className="subtitle">Upcoming classes</div>
         {schedule.map((scheduleEntry) => (
-          <div>{scheduleEntry}</div>
+          <div className="pb-8">
+            <div className="font-medium">{scheduleEntry.title}</div>
+            <div>{scheduleEntry.price}</div>
+            <div>{scheduleEntry.date}</div>
+          </div>
         ))}
         <div>
-          $15 per class,{" "}
+          Payment via{" "}
           <a
             href="https://gabrielleandartists.us17.list-manage.com/track/click?u=39fcc7a2897f43eb4a927dbc7&id=81da10072b&e=5b3b7ecfc2"
             target="_blank"

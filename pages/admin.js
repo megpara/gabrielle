@@ -66,11 +66,35 @@ export default function Admin() {
     }).then(setVidState("SUCCESS"));
   };
 
-  const updateScheduleEntry = (index, value) => {
+  const updateScheduleTitle = (index, value) => {
     setSchedule(
       schedule.map((item, i) => {
         if (i == index) {
-          return value;
+          return { title: value, price: item.price, date: item.date };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
+  const updateSchedulePrice = (index, value) => {
+    setSchedule(
+      schedule.map((item, i) => {
+        if (i == index) {
+          return { title: item.title, price: value, date: item.date };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
+  const updateScheduleDate = (index, value) => {
+    setSchedule(
+      schedule.map((item, i) => {
+        if (i == index) {
+          return { title: item.title, price: item.price, date: value };
         } else {
           return item;
         }
@@ -79,7 +103,8 @@ export default function Admin() {
   };
 
   const addScheduleEntry = () => {
-    setSchedule([...schedule, ""]);
+    setSchedule([...schedule, { title: "", price: "", date: "" }]);
+    console.log(schedule);
   };
 
   const deleteScheduleEntry = (index) => {
@@ -100,13 +125,20 @@ export default function Admin() {
         {vids.map((video, i) => {
           return (
             <div className={styles.scheduleEntry} key={(video, i)}>
+              <label className="font-thin mx-4" for="name">
+                Name:
+              </label>
               <input
+                id="name"
                 className={styles.schedule}
                 value={video.name}
                 onChange={(e) => updateVideoName(i, e.target.value)}
               />
+              <label className="font-thin mx-4" for="id">
+                Vimeo id:
+              </label>
               <input
-                className="ml-4"
+                id="id"
                 value={video.id}
                 onChange={(e) => updateVideoId(i, e.target.value)}
               />
@@ -126,10 +158,30 @@ export default function Admin() {
         {schedule.map((item, i) => {
           return (
             <div className={styles.scheduleEntry} key={(item, i)}>
+              <label className="font-thin mx-4" for="title">
+                Title:
+              </label>
               <input
+                id="title"
                 className={styles.schedule}
-                value={item}
-                onChange={(e) => updateScheduleEntry(i, e.target.value)}
+                value={item.title}
+                onChange={(e) => updateScheduleTitle(i, e.target.value)}
+              />
+              <label className="font-thin mx-4" for="price">
+                Price:
+              </label>
+              <input
+                id="price"
+                value={item.price}
+                onChange={(e) => updateSchedulePrice(i, e.target.value)}
+              />
+              <label className="font-thin mx-4" for="date">
+                Date:
+              </label>
+              <input
+                id="date"
+                value={item.date}
+                onChange={(e) => updateScheduleDate(i, e.target.value)}
               />
               <img
                 className={styles.delete}

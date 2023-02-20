@@ -67,6 +67,11 @@ export default function Menu({ open, toggle }) {
                     On demand
                   </div>
                 </Link>
+                <Link href="/work">
+                  <div className="cursor-pointer hover:tracking-widest duration-700">
+                    Work with me
+                  </div>
+                </Link>
                 <Link href="/contact">
                   <div className="cursor-pointer hover:tracking-widest duration-700">
                     Contact
